@@ -188,7 +188,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-FILEPATH = 'http://192.168.11:8003/media/file/'
+FILEPATH = 'http://192.168.11.88:8003/media/'
 
 ### Media URL path and File Path
 if ENVIRONMENT == "Dev":
