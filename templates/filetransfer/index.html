@@ -147,7 +147,7 @@
 										{% endif %}
 									</tr>
 								</thead>
-								<tbody>
+								<tbody id="refresh_data">
 									{% for i in upload_file %}
 									<tr>
 										<td><a href="{{ request.session.file_path }}{{i.file}}" download>Vyyakya_File_{{ i.id }}</a></td>

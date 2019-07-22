@@ -10,7 +10,7 @@ function upload(event) {
 		processData: false,
 		contentType: false,
 		success: function(data) {
-			alert('success');
+			//alert('success');
 		}
 	});
 	return false;
@@ -43,7 +43,17 @@ $('.action_delete').click(function(e){
 		success: function(data) {
 			alert('Delete success');
 			$(deletedata).closest("tr").remove();
-
+			$.ajax({
+				url: 'upload/',
+				type: 'GET',
+				data: data,
+				cache: false,
+				processData: false,
+				contentType: false,
+				success: function(data) {
+					window.location.href = ''
+				}
+			});
 		}
 	});
 });

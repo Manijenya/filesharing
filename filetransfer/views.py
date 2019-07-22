@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import logging, json, string
 import logging.handlers
 from django.shortcuts import render,redirect,reverse,render_to_response
-
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views import View
 from django.utils.decorators import method_decorator
@@ -50,6 +49,11 @@ class DasboardView(View):
         return super(DasboardView, self).dispatch(request, *args, **kwargs)
 class FileView(APIView):
   parser_classes = (MultiPartParser, FormParser)
+  def get(self, request, *args, **kwargs):
+      data = File.objects.filter(is_active = True)
+      file_serializer = FileSerializer(data, many=True)
+      #return render_to_response('filetransfer/index.html', { 'upload_file': data })
+      return Response(file_serializer.data)
   def post(self, request, *args, **kwargs):
     file_serializer = FileSerializer(data=request.data)
     if file_serializer.is_valid():
