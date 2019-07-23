@@ -17,9 +17,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import FileSerializer
 from rest_framework.authentication import SessionAuthentication
-
 logger_obj = logging.getLogger('logit')
-
 
 class DasboardView(View):
     ''' 
@@ -47,6 +45,7 @@ class DasboardView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super(DasboardView, self).dispatch(request, *args, **kwargs)
+    
 class FileView(APIView):
   parser_classes = (MultiPartParser, FormParser)
   def get(self, request, *args, **kwargs):

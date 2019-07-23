@@ -25,7 +25,7 @@ SECRET_KEY = 'a7$(f%&hfc#4$=j4y5n#%mq!_snb4_5h3%*j@5r6c1$2o_6zua'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ENVIRONMENT = 'Dev'
+ENVIRONMENT = 'Prod'
 
 ALLOWED_HOSTS = ["*"]
 
@@ -188,7 +188,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 
-FILEPATH = 'http://192.168.11.88:8003/media/'
+FILEPATH = 'http://35.244.57.170:8000/media/'
 
 ### Media URL path and File Path
 if ENVIRONMENT == "Dev":
@@ -196,7 +196,7 @@ if ENVIRONMENT == "Dev":
 elif ENVIRONMENT == "Test":
     MEDIA_ROOT = '/home/'+getpass.getuser()+'/.filesharing/uploads/'
 elif ENVIRONMENT == "Prod":
-    MEDIA_ROOT = '/home/.filesharing/uploads/'
+    MEDIA_ROOT = '/home/'+getpass.getuser()+'/.filesharing/uploads/'
        
 MEDIA_URL = '/media/'
 
